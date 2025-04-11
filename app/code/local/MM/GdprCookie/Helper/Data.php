@@ -259,22 +259,7 @@ class MM_GdprCookie_Helper_Data extends Mage_Core_Helper_Abstract
     public function getChoicesJson($store = null): string
     {
         $choicesConfig = $this->getChoicesConfig($store);
-        // The component expects a simpler structure: { key: boolean_value } or { key: false } to hide
-        $componentChoices = [];
-        foreach ($choicesConfig as $key => $config) {
-            // We don't pass necessary=true as it's implicit in the component
-            if ($key !== 'necessary') {
-                 // For now, we only support enabling/disabling based on default value.
-                 // If we wanted to hide categories, we'd need more config options.
-                 // Let's assume for now we always show them based on their default state.
-                 $componentChoices[$key] = $config['value'];
-            }
-        }
-        // Necessary is always true, so we don't need to explicitly pass it unless we want to hide it (which we don't)
-        // If a category needs to be hidden, the component expects `category: false`.
-        // We are not implementing hiding categories via config yet.
-
-        return json_encode($componentChoices);
+        return json_encode($choicesConfig);
     }
 
 }
