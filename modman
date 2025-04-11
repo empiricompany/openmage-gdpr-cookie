@@ -1,0 +1,5 @@
+app/etc/modules/MM_GdprCookie.xml app/etc/modules/MM_GdprCookie.xml
+app/code/local/MM/GdprCookie app/code/local/MM/GdprCookie
+app/design/frontend/base/default/layout/mm/mm_gdprcookie.xml app/design/frontend/base/default/layout/mm/mm_gdprcookie.xml
+app/design/frontend/base/default/template/mm/gdprcookie app/design/frontend/base/default/template/mm/gdprcookie
+skin/frontend/base/default/mm/gdprcookie skin/frontend/base/default/mm/gdprcookie

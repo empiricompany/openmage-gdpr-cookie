@@ -1,0 +1,10 @@
+{
+    "name": "mm/openmage-gdpr-cookie",
+    "description": "Adds a configurable GDPR cookie consent banner using an external script.",
+    "type": "magento-module",
+    "license": "MIT",
+    "version": "0.1.0",
+    "require": {
+        "magento-hackathon/magento-composer-installer": "*"
+    }
+}

@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <MM_GdprCookie>
+            <version>0.1.0</version>
+        </MM_GdprCookie>
+    </modules>
+    <global>
+        <models>
+            <mm_gdprcookie>
+                <class>MM_GdprCookie_Model</class>
+            </mm_gdprcookie>
+        </models>
+        <helpers>
+            <mm_gdprcookie>
+                <class>MM_GdprCookie_Helper</class>
+            </mm_gdprcookie>
+        </helpers>
+        <blocks>
+            <mm_gdprcookie>
+                <class>MM_GdprCookie_Block</class>
+            </mm_gdprcookie>
+        </blocks>
+    </global>
+    <adminhtml>
+        <menu>
+            <system>
+                <children>
+                    <mm_gdprcookie translate="title" module="mm_gdprcookie">
+                        <title>GDPR Cookie Settings</title>
+                        <sort_order>205</sort_order>
+                        <action>adminhtml/system_config/edit/section/mm_gdprcookie</action>
+                    </mm_gdprcookie>
+                </children>
+            </system>
+        </menu>
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <mm_gdprcookie translate="title">
+                                            <title>GDPR Cookie Settings</title>
+                                            <sort_order>205</sort_order>
+                                        </mm_gdprcookie>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
+    <frontend>
+        <layout>
+            <updates>
+                <mm_gdprcookie>
+                    <file>mm/mm_gdprcookie.xml</file>
+                </mm_gdprcookie>
+            </updates>
+        </layout>
+    </frontend>
+    <default>
+        <mm_gdprcookie>
+            <general>
+                <enabled>0</enabled>
+                <cookie_name>beyonk_gdpr</cookie_name>
+                <visible>1</visible>
+                <show_edit_icon>1</show_edit_icon>
+                <edit_icon_position>left</edit_icon_position>
+            </general>
+            <text_settings>
+                <heading>GDPR Notice</heading>
+                <description>We use cookies to offer a better browsing experience, analyze site traffic, personalize content, and serve targeted advertisements. Please review our &lt;a href="%s"&gt;privacy policy&lt;/a&gt;. By clicking accept, you consent to our privacy policy &amp; use of cookies.</description>
+                <privacy_page>privacy-policy-cookie-restriction-mode</privacy_page>
+                <accept_all_label>Accept all</accept_all_label>
+                <accept_selected_label>Accept selected</accept_selected_label>
+                <reject_label>Reject all</reject_label>
+                <settings_label>Preferences</settings_label>
+                <close_label>Close window</close_label>
+                <edit_label>Edit settings</edit_label>
+            </text_settings>
+            <choices>
+                <necessary_value>1</necessary_value>
+                <necessary_label>Necessary cookies</necessary_label>
+                <necessary_description>Used for cookie control. Can't be turned off.</necessary_description>
+                <tracking_value>1</tracking_value>
+                <tracking_label>Tracking cookies</tracking_label>
+                <tracking_description>Used for advertising purposes.</tracking_description>
+                <analytics_value>1</analytics_value>
+                <analytics_label>Analytics cookies</analytics_label>
+                <analytics_description>Used to control Google Analytics, a 3rd party tool offered by Google to track user behavior.</analytics_description>
+                <marketing_value>1</marketing_value>
+                <marketing_label>Marketing cookies</marketing_label>
+                <marketing_description>Used for marketing data.</marketing_description>
+            </choices>
+        </mm_gdprcookie>
+    </default>
+</config>

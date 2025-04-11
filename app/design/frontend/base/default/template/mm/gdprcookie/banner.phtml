@@ -1,0 +1,60 @@
+<?php
+/**
+ * @var Mage_Core_Block_Template $this
+ * @var MM_GdprCookie_Helper_Data $helper
+ */
+$helper = $this->helper('mm_gdprcookie');
+
+// Double check if enabled, although layout XML should handle this via ifconfig
+if (!$helper->isEnabled()) {
+    return;
+}
+
+// Fetch all configuration values using the helper
+$cookieName          = $helper->getCookieName();
+$visible             = $helper->isVisible() ? 'true' : 'false'; // Component expects string "true" or "false"
+$heading             = $this->escapeHtml($helper->getHeading());
+$description         = $helper->getDescription(); // Allow HTML in description
+$acceptAllLabel      = $this->escapeHtml($helper->getAcceptAllLabel());
+$acceptSelectedLabel = $this->escapeHtml($helper->getAcceptSelectedLabel());
+$rejectLabel         = $this->escapeHtml($helper->getRejectLabel());
+$settingsLabel       = $this->escapeHtml($helper->getSettingsLabel());
+$closeLabel          = $this->escapeHtml($helper->getCloseLabel());
+$editLabel           = $this->escapeHtml($helper->getEditLabel());
+$choicesJson         = $this->escapeHtml($helper->getChoicesJson()); // Escape JSON for attribute
+$showEditIcon        = $helper->getShowEditIcon() ? 'true' : 'false';
+$editIconPosition    = $helper->getEditIconPosition();
+?>
+<!-- Beyonk GDPR Cookie Consent Banner -->
+
+<!-- Load module script -->
+<script type="module" src="<?php echo $this->getSkinUrl('mm/gdprcookie/banner.js') ?>"></script>
+
+<style>
+cookie-consent-banner::part(toggle), .cookieConsentToggle,
+cookie-consent-banner::part(wrapper), .cookieConsentWrapper {
+z-index: 9999999999;
+}
+<?php if ($editIconPosition === 'left'): ?>
+cookie-consent-banner::part(toggle), .cookieConsentToggle {
+    left: 20px;
+    right: unset;
+}
+<?php endif; ?>
+</style>
+
+<!-- Banner Element with Dynamic Configuration -->
+<cookie-consent-banner
+    cookie-name="<?php echo $this->escapeHtml($cookieName); ?>"
+    visible="<?php echo $visible; ?>"
+    heading="<?php echo $heading; ?>"
+    description='<?php echo $description; ?>'
+    accept-all-label="<?php echo $acceptAllLabel; ?>"
+    accept-selected-label="<?php echo $acceptSelectedLabel; ?>"
+    reject-label="<?php echo $rejectLabel; ?>"
+    settings-label="<?php echo $settingsLabel; ?>"
+    close-label="<?php echo $closeLabel; ?>"
+    edit-label="<?php echo $editLabel; ?>"
+    choices='<?php echo $choicesJson; ?>'
+    show-edit-icon="<?php echo $showEditIcon; ?>"
+></cookie-consent-banner>

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+        <!-- Add CSS and JS files -->
+        <reference name="head">
+            <action method="addCss" ifconfig="mm_gdprcookie/general/enabled">
+                <stylesheet>mm/gdprcookie/banner.css</stylesheet>
+            </action>
+        </reference>
+
+        <!-- Add banner block -->
+        <reference name="before_body_end">
+            <block type="core/template" name="mm_gdprcookie_banner" as="mm_gdprcookie_banner" template="mm/gdprcookie/banner.phtml" ifconfig="mm_gdprcookie/general/enabled" />
+        </reference>
+    </default>
+</layout>
