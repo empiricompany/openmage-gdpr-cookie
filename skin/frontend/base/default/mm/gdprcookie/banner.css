@@ -1,5 +1,6 @@
 cookie-consent-banner::part(toggle),
 .cookieConsentToggle {
+  cursor: pointer;
   width: 40px;
   height: 40px;
   position: fixed;
@@ -24,7 +25,7 @@ cookie-consent-banner::part(toggle):hover,
 
 cookie-consent-banner::part(wrapper),
 .cookieConsentWrapper {
-  z-index: 99990;
+  z-index: 9999999999;
   position: fixed;
   left: 0;
   right: 0;
@@ -86,7 +87,7 @@ cookie-consent-banner::part(operations),
   display: flex;
   transition: 300ms;
   will-change: transform;
-  z-index: 99999;
+  z-index: 99999999999;
 }
 
 cookie-consent-banner::part(operations--list),

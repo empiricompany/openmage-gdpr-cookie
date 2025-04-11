@@ -30,21 +30,15 @@ $editIconPosition    = $helper->getEditIconPosition();
 <!-- Load module script -->
 <script type="module" src="<?php echo $this->getSkinUrl('mm/gdprcookie/banner.js') ?>"></script>
 
-<style>
-cookie-consent-banner::part(toggle), .cookieConsentToggle,
-cookie-consent-banner::part(wrapper), .cookieConsentWrapper {
-z-index: 9999999999;
-}
-cookie-consent-banner::part(operations), .cookieConsentOperations {
-z-index: 99999999999;
-}
+
 <?php if ($editIconPosition === 'left'): ?>
+<style>
 cookie-consent-banner::part(toggle), .cookieConsentToggle {
     left: 20px;
     right: unset;
 }
-<?php endif; ?>
 </style>
+<?php endif; ?>
 
 <!-- Banner Element with Dynamic Configuration -->
 <cookie-consent-banner
